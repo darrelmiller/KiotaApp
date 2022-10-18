@@ -4,6 +4,18 @@ This simple console app is built to demonstrate how the Kiota API client generat
 
 The application will compile but is missing ApiKeys for several of the APIs.  The API keys can be acquired from the respective API website and should be set as environment variables.
 
+## Running the applicationa
+
+### dotnet
+
+The console app needs an `appSettings.json` file. To achieve it, copy the `appSettings.sample.json` as `appSettings.json` and fill the values for the 3 APIs we need API keys.
+
+1. Weather API : https://visualcrossing.com/
+2. New York Times Movie Rewiews API : https://developer.nytimes.com/docs/movie-reviews-api/1/overview
+3. Bing Search API : https://docs.microsoft.com/en-us/azure/cognitive-services/bing-news-search/search-the-web
+
+Run `dotnet run` and the app will perform the calls to the underlying APIs.
+
 ## Funtranslation APIs
 
 This API is great to try because for a low volume of calls it does not even need an API key.
@@ -81,8 +93,6 @@ kiota generate -l csharp -o funtranslate -d https://funtranslations.com/yaml/fun
 ```
 
 ## Bing News Search
-
-Instructions on getting a key https://docs.microsoft.com/en-us/azure/cognitive-services/bing-news-search/search-the-web
 
 ```
 kiota search News
