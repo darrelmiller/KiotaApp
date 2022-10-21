@@ -4,6 +4,28 @@ This simple console app is built to demonstrate how the Kiota API client generat
 
 The application will compile but is missing ApiKeys for several of the APIs.  The API keys can be acquired from the respective API website and should be set as environment variables.
 
+## Running the applicationa
+
+### dotnet
+
+The console app needs an `appSettings.json` file. To achieve it, copy the `appSettings.sample.json` as `appSettings.json` and fill the values for the 3 APIs we need API keys.
+
+1. Weather API : https://visualcrossing.com/
+2. New York Times Movie Rewiews API : https://developer.nytimes.com/docs/movie-reviews-api/1/overview
+3. Bing Search API : https://docs.microsoft.com/en-us/azure/cognitive-services/bing-news-search/search-the-web
+
+Run `dotnet run` and the app will perform the calls to the underlying APIs.
+
+### JavaScript
+
+The console app needs an `.env` file. To achieve it, copy the `.env.sample` as `.env` and fill the values for the 3 APIs we need API keys.
+
+1. Weather API : https://visualcrossing.com/
+2. New York Times Movie Rewiews API : https://developer.nytimes.com/docs/movie-reviews-api/1/overview
+3. Bing Search API : https://docs.microsoft.com/en-us/azure/cognitive-services/bing-news-search/search-the-web
+
+Run `npm i` to install all dependencies and `npm start` to perform the calls to the underlying APIs.
+
 ## Funtranslation APIs
 
 This API is great to try because for a low volume of calls it does not even need an API key.
@@ -78,11 +100,10 @@ With this information we can generate our Api client to have the class name `Tra
 
 ```
 kiota generate -l csharp -o funtranslate -d https://funtranslations.com/yaml/funtranslations.starwars.yaml -c TranslateClient -n Translate
+kiota generate -l typescript -o funtranslate -d https://funtranslations.com/yaml/funtranslations.starwars.yaml -c TranslateClient -n Translate
 ```
 
 ## Bing News Search
-
-Instructions on getting a key https://docs.microsoft.com/en-us/azure/cognitive-services/bing-news-search/search-the-web
 
 ```
 kiota search News
@@ -94,6 +115,7 @@ kiota search apisguru::microsoft.com:cognitiveservices-NewsSearch
 
 ```
 kiota generate -l csharp -o bingNews -d https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/NewsSearch/stable/v1.0/NewsSearch.json -c BingNewsClient -n Bing
+kiota generate -l typescript -o bingNews -d https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/cognitiveservices/data-plane/NewsSearch/stable/v1.0/NewsSearch.json -c BingNewsClient -n Bing
 ```
 
 ## New York Times Movie Reviews
@@ -108,6 +130,7 @@ kiota search apisguru::nytimes.com:movie_reviews
 
 ```
 kiota generate -l csharp -o nytmoviereviews -d https://raw.githubusercontent.com/nytimes/public_api_specs/master/movie_reviews/movie_reviews_v2.json -c NytMovieClient -n Nyt
+kiota generate -l typescript -o weather -d https://www.visualcrossing.com/weather/specs/visualcrossing-weather-api-openapi.json -c Weatherclient -n Weather
 ```
 
 ## Visual Crossing Weather Service
@@ -122,4 +145,5 @@ kiota search apisguru::visualcrossing.com:weather
 
 ```
 kiota generate -l csharp -o weather -d https://www.visualcrossing.com/weather/specs/visualcrossing-weather-api-openapi.json -c Weatherclient -n Weather
+kiota generate -l typescript -o weather -d https://www.visualcrossing.com/weather/specs/visualcrossing-weather-api-openapi.json -c Weatherclient -n Weather
 ```
